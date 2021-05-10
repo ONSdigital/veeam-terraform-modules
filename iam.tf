@@ -46,4 +46,3 @@ resource "google_project_iam_binding" "veeam-appliance-binding" {
     "serviceAccount:${var.veeam-appliance-service-account}"
   ]
 }
-veeam-appliance@ons-veeam-prod.iam.gserviceaccount.com
