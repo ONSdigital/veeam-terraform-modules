@@ -43,6 +43,6 @@ resource "google_project_iam_binding" "veeam-worker-binding" {
 resource "google_project_iam_binding" "veeam-appliance-binding" {
   role = "roles/iam.serviceAccountTokenCreator"
   members = [
-    "serviceAccount:${var.veeam-appliance-service-account}"
+    "serviceAccount:${var.veeam_appliance_service_account}"
   ]
 }
