@@ -8,7 +8,8 @@ resource "google_project_iam_custom_role" "veeam-default" {
     "compute.resourcePolicies.create",
     "compute.resourcePolicies.get",
     "compute.resourcePolicies.use",
-    "compute.zones.get"
+    "compute.zones.get",
+    "serviceusage.services.list"
   ]
 }
 
@@ -66,7 +67,8 @@ resource "google_project_iam_custom_role" "veeam-backup" {
     "cloudkms.keyRings.list",
     "cloudkms.cryptoKeys.list",
     "cloudkms.cryptoKeys.setIamPolicy",
-    "cloudkms.cryptoKeys.getIamPolicy"
+    "cloudkms.cryptoKeys.getIamPolicy",
+    "serviceusage.services.list"
   ]
 }
 
@@ -116,7 +118,8 @@ resource "google_project_iam_custom_role" "veeam-snapshot" {
     "pubsub.topics.setIamPolicy",
     "pubsub.topics.update",
     "cloudkms.keyRings.list",
-    "cloudkms.cryptoKeys.list"
+    "cloudkms.cryptoKeys.list",
+    "serviceusage.services.list"
   ]
 }
 
@@ -133,7 +136,8 @@ resource "google_project_iam_custom_role" "veeam-repository" {
     "storage.hmacKeys.create",
     "storage.hmacKeys.list",
     "storage.hmacKeys.get",
-    "resourcemanager.projects.get"
+    "resourcemanager.projects.get",
+    "serviceusage.services.list"
   ]
 }
 
@@ -196,7 +200,8 @@ resource "google_project_iam_custom_role" "veeam-restore" {
     "compute.instances.list",
     "compute.routes.list",
     "cloudkms.cryptoKeys.setIamPolicy",
-    "cloudkms.cryptoKeys.getIamPolicy"
+    "cloudkms.cryptoKeys.getIamPolicy",
+    "serviceusage.services.list"
   ]
 }
 
@@ -258,6 +263,7 @@ resource "google_project_iam_custom_role" "veeam-worker" {
     "compute.subnetworks.get",
     "compute.subnetworks.use",
     "compute.subnetworks.useExternalIp",
-    "compute.disks.use"
+    "compute.disks.use",
+    "serviceusage.services.list"
   ]
 }
