@@ -1,8 +1,11 @@
+data "google_client_config" "current" {}
+
 resource "google_project_iam_binding" "veeam-default-binding" {
   role = google_project_iam_custom_role.veeam-default.id
   members = [
     "serviceAccount:${google_service_account.veeam-backup.email}"
   ]
+  project = data.google_client_config.current.project
 }
 
 resource "google_project_iam_binding" "veeam-backup-binding" {
@@ -10,6 +13,7 @@ resource "google_project_iam_binding" "veeam-backup-binding" {
   members = [
     "serviceAccount:${google_service_account.veeam-backup.email}"
   ]
+  project = data.google_client_config.current.project
 }
 
 resource "google_project_iam_binding" "veeam-snapshot-binding" {
@@ -17,6 +21,7 @@ resource "google_project_iam_binding" "veeam-snapshot-binding" {
   members = [
     "serviceAccount:${google_service_account.veeam-backup.email}"
   ]
+  project = data.google_client_config.current.project
 }
 
 resource "google_project_iam_binding" "veeam-repository-binding" {
@@ -24,6 +29,7 @@ resource "google_project_iam_binding" "veeam-repository-binding" {
   members = [
     "serviceAccount:${google_service_account.veeam-backup.email}"
   ]
+  project = data.google_client_config.current.project
 }
 
 resource "google_project_iam_binding" "veeam-restore-binding" {
@@ -31,6 +37,7 @@ resource "google_project_iam_binding" "veeam-restore-binding" {
   members = [
     "serviceAccount:${google_service_account.veeam-backup.email}"
   ]
+  project = data.google_client_config.current.project
 }
 
 resource "google_project_iam_binding" "veeam-worker-binding" {
@@ -38,6 +45,7 @@ resource "google_project_iam_binding" "veeam-worker-binding" {
   members = [
     "serviceAccount:${google_service_account.veeam-backup.email}"
   ]
+  project = data.google_client_config.current.project
 }
 
 resource "google_project_iam_binding" "veeam-appliance-binding" {
@@ -45,4 +53,5 @@ resource "google_project_iam_binding" "veeam-appliance-binding" {
   members = [
     "serviceAccount:${var.veeam_appliance_service_account}"
   ]
+  project = data.google_client_config.current.project
 }
