@@ -9,7 +9,8 @@ resource "google_project_iam_custom_role" "veeam-default" {
     "compute.resourcePolicies.get",
     "compute.resourcePolicies.use",
     "compute.zones.get",
-    "serviceusage.services.list"
+    "serviceusage.services.list",
+    "resourcemanager.projects.setIamPolicy"
   ]
 }
 
@@ -127,6 +128,8 @@ resource "google_project_iam_custom_role" "veeam-repository" {
   role_id = "veeam_repository"
   title = "veeam-repository"
   permissions = [
+    "storage.buckets.getIamPolicy",
+    "storage.buckets.setIamPolicy",
     "storage.buckets.list",
     "storage.buckets.get",
     "storage.objects.create",
@@ -234,6 +237,7 @@ resource "google_project_iam_custom_role" "veeam-worker" {
     "compute.disks.setLabels",
     "compute.instances.create",
     "compute.instances.delete",
+    "compute.instances.attachDisk",
     "compute.instances.detachDisk",
     "compute.instances.setMetadata",
     "compute.instances.setServiceAccount",
